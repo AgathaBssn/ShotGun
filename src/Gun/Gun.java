@@ -33,5 +33,21 @@ public class Gun {
         return charger;
     }
 
+    public Bullet shot() {
+        if (charger.isEmpty()) {
+            return null;
+        }
+        // fifo bullet logic
+        return charger.remove(0);
+    }
+
+    public boolean isEmpty() {
+        return charger.isEmpty();
+    }
+
+    public int remainingBullets() {
+        return charger.size();
+    }
+
     
 }
