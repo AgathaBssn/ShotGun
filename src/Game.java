@@ -19,6 +19,7 @@ public class Game {
     private ConsoleDisplay display;
     private Scanner scanner;
     private Random random;
+    private int roundNumber;
 
     public Game(Player player, NPC npc, ConsoleDisplay display) {
         this.player = player;
@@ -69,26 +70,31 @@ public class Game {
     }
 
 
-    public void play() {
+      public void play() {
         display.showGameStart();
-        startNewRound();
 
-        while (!currentRound.isFinished()) {
-            playTurn();
+        while (!isFinished()) {
+            startNewRound();
+            playRound();
+            display.showRoundEnd(player, npc);
         }
 
-        display.showRoundEnd(player, npc);
         display.showWinner(getWinner());
+        scanner.close();
+    }
+
+    private void playRound() {
+        while (!currentRound.isFinished() && !isFinished()) {
+            playTurn();
+        }
     }
 
     private void playTurn() {
-        //get current
         Playable currentPlayer = currentRound.getCurrentPlayer();
 
         display.showRoundState(player, npc, currentPlayer);
 
         Playable target = chooseTarget(currentPlayer);
-
         ShotResult result = currentRound.resolveShot(currentPlayer, target);
 
         if (result.getBullet() == null) {
