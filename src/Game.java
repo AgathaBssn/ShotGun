@@ -61,11 +61,14 @@ public class Game {
         // load charger
         gun.loadBullet(new Bullet(EBulletType.REAL));
         gun.loadBullet(new Bullet(EBulletType.BLANK));
-        gun.loadBullet(new Bullet(EBulletType.REAL));
-        gun.loadBullet(new Bullet(EBulletType.BLANK));
-        gun.loadBullet(new Bullet(EBulletType.REAL));
-        gun.loadBullet(new Bullet(EBulletType.BLANK));
 
+        for(int i = 1; i < 5; i++){
+            if(random.nextBoolean()){
+                gun.loadBullet(new Bullet(EBulletType.REAL));
+            }else{
+                gun.loadBullet(new Bullet(EBulletType.BLANK));
+            }
+        }
         this.currentRound = new Round(player, npc, gun);
     }
 
