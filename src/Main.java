@@ -1,14 +1,17 @@
 package src;
-import java.util.Scanner;
+
+import src.ConsoleDisplay;
+import src.Game;
+import src.Playable.NPC;
+import src.Playable.Player;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Bienvenue dans mon jeu !");
-        System.out.print("Entre ton nom : ");
-        String nom = sc.nextLine();
+        Player player = new Player("Joueur");
+        NPC npc = new NPC("Dealer");
+        ConsoleDisplay display = new ConsoleDisplay();
 
-        System.out.println("Salut " + nom + " !");
-        sc.close();
+        Game game = new Game(player, npc, display);
+        game.play();
     }
 }

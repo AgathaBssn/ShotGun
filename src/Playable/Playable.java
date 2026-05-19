@@ -6,10 +6,10 @@ import java.util.List;
 public abstract class Playable {
     private int healthPoint ;
     private String name;
-    private List<Joker> inventory;
+    //private List<Joker> inventory;
 
     public Playable(String name){
-        this.inventory = new ArrayList<>();
+        //this.inventory = new ArrayList<>();
         this.name = name;
         this.healthPoint = 5;
     }
