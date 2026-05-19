@@ -1,0 +1,11 @@
+package src.Joker;
+
+public enum ETypeJoker {
+    SEENEXTBULLET,
+    GETONEHP,
+    GETTWOJOKERS,
+    REVERSEBULLET,
+    DOUBLEDAMAGE,
+    REVEALPOSITION,
+    DOUBLEACTION
+}
