@@ -1,7 +1,4 @@
 package src;
-
-import src.ConsoleDisplay;
-import src.Game;
 import src.Playable.NPC;
 import src.Playable.Player;
 

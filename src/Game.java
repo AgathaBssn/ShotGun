@@ -19,7 +19,6 @@ public class Game {
     private ConsoleDisplay display;
     private Scanner scanner;
     private Random random;
-    private int roundNumber;
 
     public Game(Player player, NPC npc, ConsoleDisplay display) {
         this.player = player;
